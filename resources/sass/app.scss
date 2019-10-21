@@ -1,0 +1,450 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//FontAwesome
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+.hidden {
+    display:none;
+}
+
+.logo-area {
+    width: 16.67% !important;
+    background-color: $left-menu-item-hover;
+}
+
+a {
+    color: $left-nav-user-area;
+    text-decoration: none;
+}
+
+a:focus {
+    color: $left-menu-item-color;
+}
+
+a:hover {
+    color: $left-menu-item-hover;
+    text-decoration: none;
+}
+
+table {
+    font-size: .7rem;
+}
+
+.color-o {
+    background-color: $left-menu-item-hover !important;
+}
+
+.color-b {
+    background-color: $left-nav-bg !important;
+}
+
+.text-o {
+    color: $left-menu-item-hover;
+}
+
+.text-b {
+    color: $left-nav-bg;
+}
+
+  .hr {
+    margin-top: .3rem;
+    margin-bottom: .3rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-sm {
+      padding: 0.2rem 0.2rem;
+      font-size: 0.75rem;
+      line-height: 1.1;
+      border-radius: 0.2rem;
+      margin: 0.1rem;
+  }
+
+.dropdown-menu, .dropdown-item {
+    background-color: $left-nav-bg;
+    color: $left-menu-item-color;
+}
+
+.dropdown-item:hover {
+    background-color: $left-nav-bg;
+    color: $left-menu-item-hover;
+}
+
+.navbar {
+    background-color: $left-nav-bg;
+    color: $left-menu-item-hover;
+    padding: 0px;
+}
+
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .nav-link:focus  {
+    color: $left-menu-item-color;
+}
+
+.navbar-light .navbar-nav .nav-link:hover  {
+    color: $left-menu-item-hover;
+}
+
+.navbar-brand {
+    color: $left-nav-user-area !important;
+    text-align: center;
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+.navbar-laravel {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+  .m-b-md {
+    margin-bottom: 30px;
+  }
+
+  .title {
+    font-size: 4em;
+    text-align: center;
+  }
+
+  .left-nav {
+    background-color: $left-nav-bg;
+    padding: 0px;
+    min-height: 91vh;
+  }
+
+  .left-nav-user-area {
+    background-color: $left-nav-user-area;
+    text-align: center;
+    padding: .5rem .5rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .left-nav-user-area img {
+      width: 8rem;
+      height: 8rem;
+  }
+
+  .left-menu-item {
+    padding: .3em 2.5em;
+    font-size: 1em;
+    text-align: left;
+  }
+
+  .left-menu-item-inner {
+    padding: 1em 3em 0em 1em;
+    font-size: 0.8em;
+    text-align: left;
+  }
+
+  .left-menu-item a,
+  .left-menu-item-inner a {
+    color: $left-menu-item-color;
+    font-weight: 700;
+  }
+
+  .left-menu-item a:hover,
+  .left-menu-item a:active,
+  .left-menu-item-inner a:hover,
+  .left-menu-item-inner a:active {
+    text-decoration: none;
+    color: $left-menu-item-hover;
+    font-weight: 700;
+  }
+
+  .left-menu-item i,
+  .left-menu-item-inner i {
+    margin-right: .5em;
+    width: 1.5em;
+  }
+
+  .white {
+    color: #FFFFFF;
+  }
+
+  .red {
+    color:red !important;
+  }
+
+  .top-controllers i:hover {
+    cursor: pointer;
+  }
+
+  .role-text {
+    text-align: center;
+    color: grey;
+    padding: 0.3rem 0.3rem;
+  }
+
+  .role-text:first-letter {
+    text-transform: uppercase;
+  }
+
+  .now-on {
+    color: $left-menu-item-hover !important;
+  }
+
+.card-header {
+    color: $left-nav-bg;
+    font-weight: 900;
+    font-size: 1.5rem;
+    background-color: $left-menu-item-hover;
+}
+
+.card {
+    border: none;
+}
+
+.card-header:first-child {
+    border-radius: 0;
+}
+
+.name-text {
+    color: #FFFFFF;
+}
+
+.dash-top {
+    height: 100%;
+    border: 1px solid $left-nav-bg;
+    border-radius: 2%;
+    background-color: #FFFFFF;
+}
+
+.dash-top-last {
+    height: 100%;
+    border: 1px solid $left-menu-item-hover;
+    border-radius: 2%;
+    background-color: $left-menu-item-hover;
+}
+
+.dash-top i {
+    font-size: 2rem;
+    padding: .5rem 0 0 .5rem;
+    color: $left-menu-item-hover;
+}
+
+.dash-top-text {
+    font-weight: 700;
+    padding: .5rem .5rem 0 0;
+    margin-top: 1rem;
+    color: grey;
+}
+
+.dash-top-info {
+    font-size: 2rem;
+    font-weight: 900;
+    padding: .5rem 1rem 0 0;
+}
+
+.dash-top a {
+    color: grey;
+}
+
+.panel-header {
+    background-color: $panel-header-bg;
+    width: 100%;
+    font-size: .7rem;
+    font-weight: 900;
+    border-radius: 5px 5px 0 0;
+}
+
+.panel-header i {
+    padding: .5rem;
+    font-size: .7rem;
+    font-weight: 700;
+}
+
+.tasks-timeline-panel,
+.chart-panel,
+.summary-panel,
+.calendar-panel,
+.todo-panel,
+.notes-panel {
+    margin-bottom: 1rem;
+    background-color: #FFFFFF;
+}
+
+.summary {
+    width: 100%;
+}
+
+.summary .d-inline-block {
+    width: 45%;
+    text-align: center;
+}
+
+.summary-info {
+    font-size: 2rem;
+    color: #000000;
+}
+
+.summary-text {
+    color: grey;
+    text-transform: uppercase;
+    font-size: .6rem;
+    font-weight: 600;
+}
+
+.tasks-timeline-panel-body {
+    height: 32rem;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.timeline-info-text {
+    color: grey;
+    text-transform: uppercase;
+    font-size: .6rem;
+    font-weight: 600;
+}
+
+.timeline-item a {
+    border-bottom: 1px solid $left-menu-item-hover;
+    border-top: 1px solid $left-menu-item-hover;
+    padding: .3rem;
+}
+
+.timeline-line {
+    line-height: 1;
+}
+
+.dashboard-note {
+    background-color: #FFFD83;
+    width: 100%;
+    padding: .5em;
+    height: 100%;
+    resize: none;
+    overflow-y: auto;
+    border: 0px solid #FFFFFF;
+}
+
+.calendar-area,
+.todo-area,
+.note-area {
+    height: 9rem;
+}
+
+.calendar-area {
+    padding: .2rem;
+}
+
+.event-item {
+    padding: .2rem;
+    margin: .5rem;
+    font-size: 85%;
+    font-weight: 700;
+    line-height: .8;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    border-top: 1px solid $left-menu-item-hover;
+    border-bottom: 1px solid $left-menu-item-hover;
+}
+
+.calendar-area i {
+    color: #CDD1D0;
+    font-size: 5rem;
+    vertical-align: middle;
+    text-align: center;
+    padding: 1rem;
+}
+
+.todo-area {
+    padding: .2rem;
+    text-align: center;
+}
+
+.todo-input {
+    border: 1px solid $left-menu-item-hover;
+    border-radius: 0.25rem;
+    padding: 0.1rem 0.2rem;
+    width: 70%;
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: .5;
+    color: #495057;
+}
+
+.todos-container {
+    overflow-y: auto;
+    text-align: left;
+    padding: .2rem .5rem;
+    height: 5rem;
+}
+
+.btn-small {
+    padding: .1rem .1rem;
+    font-size: 0.5rem;
+    line-height: .7;
+    border-radius: 0.2rem;
+    margin: 0.1rem;
+}
+
+.badge-todo {
+    border-bottom: 1px solid $left-menu-item-hover;
+    border-top: 1px solid $left-menu-item-hover;
+    padding: .1rem;
+    background-color: grey;
+}
+
+.time {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.day, .date {
+    font-size: .7rem;
+}
+
+.day {
+    font-weight: 900;
+}
+
+.dash-top-icon {
+    font-weight: 900;
+    font-size: .8rem;
+    color: $left-nav-user-area;
+    line-height: 1;
+}
+
+.dash-top-icon a:hover {
+    color: $left-nav-user-area;
+}
+
+.dash-top-vr {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    display: inline;
+}
+
+.dash-top-clockin-info {
+    font-size: .8rem;
+    font-weight: 700;
+    padding: .5rem 1rem 0 0;
+    color: grey;
+}
+
+.btn-clockin {
+    color: #FFFFFF;
+    font-weight: 900;
+}
+
+.btn-clockin:hover {
+    color: #FFFFFF;
+}
+
+.btn-clockout {
+    color: #000000;
+    font-weight: 900;
+}
+
+.btn-clockout:hover {
+    color: #000000;
+}
+
