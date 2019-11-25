@@ -17,14 +17,13 @@ class TimingsController extends Controller
     public function index()
     {
         $user_id = auth()->user()->id;
-        // $tasks = Task::all();
         $timings = Timing::where('user_id','=',$user_id)
             ->where('project_id', '>', '0')
-            ->where('task_id', '>', '0')->paginate(15);
+            ->where('task_id', '>', '0')
+            ->orderBy('updated_at', 'DESC')->paginate(15);
 
         return view('timings.all')
             ->with('timings', $timings)
-            // ->with('tasks', $tasks)
             ->with('name','Your timings');
     }
 
@@ -108,11 +107,11 @@ class TimingsController extends Controller
 
     public function addClockIn(Request $request){
         $timing = new Timing;
-        $timing->start_time = Carbon::now();
+        $timing->start_time = Carbon::now()->setTimezone("Europe/Vilnius");
         $timing->user_id = auth()->user()->id;
         $timing->task_id = 0;
         $timing->project_id = 0;
-        $timing->end_time = Carbon::now();
+        $timing->end_time = Carbon::now()->setTimezone("Europe/Vilnius");
         $timing->timespent = '00:00:00';
         $timing->note = '';
 
@@ -126,7 +125,7 @@ class TimingsController extends Controller
     public function addClockOut(Request $request){
 
         $timing = Timing::find(\Cookie::get('active_id'));
-        $timing->end_time = Carbon::now();
+        $timing->end_time = Carbon::now()->setTimezone("Europe/Vilnius");
         $timing->note = $request->note;
         $timing->user_id = auth()->user()->id;
         $timing->task_id = $request->taskID;

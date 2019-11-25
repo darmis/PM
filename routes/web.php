@@ -30,6 +30,7 @@ Route::resource('task', 'TasksController')->middleware('auth');
 Route::get('/myOpenTasks', 'TasksController@activeUserOpenTasks')->middleware('auth');
 Route::get('/loadingTasks', 'TasksController@loadingTasks')->middleware('auth');
 Route::get('/activeUserTasks', 'TasksController@activeUserTasks')->middleware('auth')->name('activeUserTasks');
+Route::get('/updateStatus', 'TasksController@updateStatus')->middleware('auth')->name('updateStatus');
 
 Route::resource('calendar', 'CalendarsController')->middleware('auth');
 Route::post('/calendar/updateCalendar', 'CalendarsController@updateCalendar')->middleware('auth');
@@ -43,6 +44,13 @@ Route::delete('/todo/{todo}', 'TodosController@destroy')->middleware('auth');
 Route::resource('timing', 'TimingsController')->middleware('auth');
 Route::get('/addClockIn','TimingsController@addClockIn')->middleware('auth')->name('addClockIn');
 Route::get('/addClockOut','TimingsController@addClockOut')->middleware('auth')->name('addClockOut');
+
+Route::resource('invoice', 'InvoicesController')->middleware('auth');
+Route::post('/invoice/getClientProjects', 'InvoicesController@getClientProjects')->middleware('auth')->name('getClientProjects');
+Route::post('/invoice/getProjectTasks', 'InvoicesController@getProjectTasks')->middleware('auth')->name('getProjectTasks');
+Route::post('/invoice/getSelectedTasksTime', 'InvoicesController@getSelectedTasksTime')->middleware('auth')->name('getSelectedTasksTime');
+Route::post('/invoice/updatePayed', 'InvoicesController@updatePayed')->middleware('auth')->name('updatePayed');
+Route::get('/PDFview/{invoice}', 'InvoicesController@PDFview');//for testing only
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/trackNote','NoteController@trackNote')->middleware('auth');

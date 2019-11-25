@@ -50,9 +50,17 @@
             <div id="date-time"></div>
             <div class="hr"></div>
             <div class="container text-center">
-                <div class="d-inline text-center dash-top-icon px-4"><i class="fas fa-stopwatch"></i></div>
+                <div class="d-inline text-center dash-top-icon px-4">
+                    @if (Cookie::get('start_time') !== null)
+                        <a href="#" class="btn-clockin hidden"><i class="fas fa-stopwatch"></i></a>
+                        <a href="#" class="red btn-clockout"><i class="fas fa-stopwatch"></i></a>
+                    @else
+                        <a href="#" class="btn-clockin"><i class="fas fa-stopwatch"></i></a>
+                        <a href="#" class="red btn-clockout hidden"><i class="fas fa-stopwatch"></i></a>
+                    @endif
+                </div>
                 <div class="dash-top-vr"></div>
-                <div class="d-inline text-center dash-top-icon px-4"><i class="fas fa-bell"></i></div>
+                <div class="d-inline text-center dash-top-icon px-4"><a href="{{ url('/task') }}"><i class="fa fa-thumbtack"></i></a></div>
                 <div class="dash-top-vr"></div>
                 <div class="d-inline text-center dash-top-icon px-4"><a href="{{ url('/calendar') }}"><i class="fa fa-calendar-alt"></i></a></div>
             </div>
@@ -71,9 +79,13 @@
                     <div class="summary-info">{{ !$totalProjectsCount ? '-' : $totalProjectsCount }}</div>
                     <div class="summary-text">{{ __('Projects') }}</div>
                 </div>
-                <div class="d-inline-block p-2">
+                <div class="d-inline-block border-right p-2">
                     <div class="summary-info">{{ !$totalTasksCount ? '-' : $totalTasksCount }}</div>
                     <div class="summary-text">{{ __('Tasks') }}</div>
+                </div>
+                <div class="d-inline-block p-2">
+                    <div class="summary-info">{{ !$totalTimingsCount ? '-' : $totalTimingsCount }}</div>
+                    <div class="summary-text">{{ __('Timings') }}</div>
                 </div>
             </div>
             <div class="summary border-top">
@@ -81,9 +93,13 @@
                     <div class="summary-info">{{ !$totalClientsCount ? '-' : $totalClientsCount }}</div>
                     <div class="summary-text">{{ __('Clients') }}</div>
                 </div>
+                <div class="d-inline-block border-right p-2">
+                    <div class="summary-info">{{ !$totalInvoicesCount ? '-' : $totalInvoicesCount }}</div>
+                    <div class="summary-text">{{ __('Invoices') }}</div>
+                </div>
                 <div class="d-inline-block p-2">
-                    <div class="summary-info">{{ !$totalTimingsCount ? '-' : $totalTimingsCount }}</div>
-                    <div class="summary-text">{{ __('Hours worked') }}</div>
+                    <div class="summary-info">{{ !$totalTimings ? '-' : $totalTimings }}</div>
+                    <div class="summary-text">{{ __('Worked (h)') }}</div>
                 </div>
             </div>
         </div>

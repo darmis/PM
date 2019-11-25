@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }} - Project Manager</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -113,9 +113,11 @@
                             {{-- <div class="left-menu-item">
                                 <a href="{{ url('/paying') }}" class="{{ Request::is('paying') ? 'now-on' : '' }}"><i class="fa fa-tags"></i>{{ __('Payings') }}</a>
                             </div> --}}
-                            <div class="left-menu-item">
-                                <a href="{{ url('/invoice') }}" class="{{ Request::is('invoice') ? 'now-on' : '' }}"><i class="fa fa-file-invoice"></i>{{ __('Invoices') }}</a>
-                            </div>
+                            @if(Auth::user()->isAdmin)
+                                <div class="left-menu-item">
+                                    <a href="{{ url('/invoice') }}" class="{{ Request::is('invoice') ? 'now-on' : '' }}"><i class="fa fa-file-invoice"></i>{{ __('Invoices') }}</a>
+                                </div>
+                            @endif
                             <div class="hr"></div>
                             <div class="left-menu-item">
                                 <a href="{{ url('/calendar') }}" class="{{ Request::is('calendar') ? 'now-on' : '' }}"><i class="fa fa-calendar-alt"></i>{{ __('Calendar') }}</a>
@@ -164,7 +166,7 @@
             $('.btn-clockout').removeClass('hidden');
             $('.btn-clockin').addClass('hidden');
             $('.clockin-text-1').text('{{ __("You are clocked in") }}');
-            $('.clockin-text-2').text('{{ __("since: ") }} {{ Carbon\Carbon::now()->format("H:i") }}');
+            $('.clockin-text-2').text('{{ __("since: ") }} {{ Carbon\Carbon::now()->setTimezone("Europe/Vilnius")->format("H:i") }}');
             $.ajax({
                 type: "get",
                 url: "{{ route('addClockIn') }}"

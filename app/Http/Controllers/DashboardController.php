@@ -10,6 +10,7 @@ use App\Task;
 use App\Project;
 use App\Client;
 use App\Timing;
+use App\Invoice;
 use App\Note;
 use App\Calendar;
 use App\Todo;
@@ -38,10 +39,23 @@ class DashboardController extends Controller
         $myOpenTasksCount = Task::whereJsonContains('members', (string) $user)
             ->where('status', '=', 'Not started yet')
             ->orWhere('status', '=', 'In progress')->count();
-        $totalProjectsCount = Project::all()->count();
-        $totalTasksCount = Task::all()->count();
+        $totalProjectsCount = Project::whereJsonContains('members', (string) $user)->count();
+        $totalTasksCount = Task::whereJsonContains('members', (string) $user)->count();
         $totalClientsCount = Client::all()->count();
-        $totalTimingsCount = Timing::all()->count();
+
+        $start = Carbon::now();
+        $end = Carbon::now();
+        $timings = Timing::where('user_id', $user)->get();
+        foreach($timings as $timing){
+            $times = explode(':',$timing->timespent,2);
+            $end->addHours((int)$times[0])->addMinutes((int)$times[1]);
+        }
+        $totalTimings = $start->diffInHours($end) . ':' . $start->diff($end)->format('%I');
+
+        $totalTimingsCount = Timing::where('user_id', $user)->count();
+
+        $totalInvoicesCount = Invoice::where('user_id', $user)->count();
+
         $tasksForTimeline = Task::whereJsonContains('members', (string) $user)->get();
 
         $todayCalendars = Calendar::where('user_id', $user)
@@ -66,7 +80,8 @@ class DashboardController extends Controller
                 'totalClientsCount', 'totalTimingsCount',
                 'tasksForTimeline', 'note',
                 'todayCalendars', 'todos',
-                'chart'
+                'chart', 'totalTimings',
+                'totalInvoicesCount'
             ));
     }
 }

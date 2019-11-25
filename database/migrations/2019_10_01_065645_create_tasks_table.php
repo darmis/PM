@@ -23,6 +23,7 @@ class CreateTasksTable extends Migration
             $table->string('status');
             $table->integer('creator');
             $table->json('members')->nullable();
+            $table->boolean('invoiced')->default(0);
             $table->timestamps();
         });
     }

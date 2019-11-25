@@ -45,12 +45,20 @@ table {
     background-color: $left-nav-bg !important;
 }
 
+.color-g {
+    background-color: grey !important;
+}
+
 .text-o {
     color: $left-menu-item-hover;
 }
 
 .text-b {
     color: $left-nav-bg;
+}
+
+.text-w {
+    color: #FFF;
 }
 
   .hr {
@@ -271,17 +279,27 @@ table {
     background-color: #FFFFFF;
 }
 
+.calendar-panel,
+.todo-panel,
+.notes-panel {
+    height: 31%;
+}
+
+.tasks-timeline-panel {
+    height: 35rem;
+}
+
 .summary {
     width: 100%;
 }
 
 .summary .d-inline-block {
-    width: 45%;
+    width: 30%;
     text-align: center;
 }
 
 .summary-info {
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #000000;
 }
 
@@ -293,7 +311,7 @@ table {
 }
 
 .tasks-timeline-panel-body {
-    height: 32rem;
+    height: 95%;
     overflow: hidden;
     overflow-y: auto;
 }
@@ -307,8 +325,8 @@ table {
 
 .timeline-item a {
     border-bottom: 1px solid $left-menu-item-hover;
-    border-top: 1px solid $left-menu-item-hover;
-    padding: .3rem;
+    // border-top: 1px solid $left-menu-item-hover;
+    // padding: .3rem;
 }
 
 .timeline-line {
@@ -329,6 +347,10 @@ table {
 .todo-area,
 .note-area {
     height: 9rem;
+}
+
+.note-area {
+    height: 90%;
 }
 
 .calendar-area {
@@ -414,6 +436,7 @@ table {
     line-height: 1;
 }
 
+.dash-top-icon a,
 .dash-top-icon a:hover {
     color: $left-nav-user-area;
 }
@@ -448,3 +471,21 @@ table {
     color: #000000;
 }
 
+.kanban-view {
+    padding: 1rem;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: $left-nav-bg;
+    background-color: $left-menu-item-hover;
+    border-color: $left-menu-item-hover;
+}
+
+.page-link,
+.page-link:hover,
+.page-link:focus {
+    color: $left-nav-bg;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}

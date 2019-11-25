@@ -16,7 +16,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::paginate(15);
+        $projects = Project::whereJsonContains('members', (string) auth()->user()->id)->paginate(15);
         $users = User::all(['id', 'name', 'lastname']);
 
         return view('projects.all')

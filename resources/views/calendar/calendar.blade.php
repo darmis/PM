@@ -39,6 +39,7 @@
             navLinks: true, // can click day/week names to navigate views
             editable: true,
             eventLimit: true, // allow "more" link when too many events
+            height: 'auto',
             events: [
                 @if(!empty($calendars))
                     @foreach($calendars as $calendar)

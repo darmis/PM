@@ -16,7 +16,8 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = Task::paginate(15);
+        $tasks = Task::whereJsonContains('members', (string) auth()->user()->id)
+            ->orderBy('updated_at', 'DESC')->paginate(15);
         $users = User::all(['id', 'name', 'lastname']);
 
         return view('tasks.all')
@@ -147,12 +148,26 @@ class TasksController extends Controller
 
     public function loadingTasks()
     {
-        $data = Task::whereJsonContains('members', (string) auth()->user()->id)->orderBy('updated_at', 'DESC')->paginate(6);
+        $data = Task::whereJsonContains('members', (string) auth()->user()->id)->orderBy('updated_at', 'DESC')->paginate(10);
         return response()->json($data);
     }
 
     public function activeUserTasks() {
         $data = Task::whereJsonContains('members', (string) auth()->user()->id)->get(['id', 'name'])->toArray();
         return response()->json($data);
+    }
+
+    public function updateStatus(Request $request){
+        $task = Task::find($request->taskID);
+        if($request->newStatus == '_notstarted'){
+            $task->status = 'Not started yet';
+        } else if($request->newStatus == '_progress') {
+            $task->status = 'In progress';
+        } else if($request->newStatus == '_done'){
+            $task->status = 'Done';
+        }
+        $task->save();
+
+        return;
     }
 }
